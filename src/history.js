@@ -1,5 +1,5 @@
-import {hashHistory, useRouterHistory} from 'react-router';
-import {createHistory} from 'history';
+import { hashHistory, useRouterHistory } from 'react-router';
+import { createHistory } from 'history';
 let _history;
 
 function ensureHistory() {
@@ -10,21 +10,20 @@ function ensureHistory() {
 	return true;
 }
 
-
-
 export function replace(...args) {
-	if (ensureHistory())
-		return _history.replace(...args);
-
+	if (ensureHistory()) return _history.replace(...args);
 }
 
-export default function (basename) {
+export default function(basename) {
 	console.log(`using ${basename}`);
 	if (_history) {
 		console.warn(`can not re-initialize history`);
 		return _history;
 	}
-	return (_history = !window || window.location.protocol === 'file:' ? hashHistory : useRouterHistory(createHistory)({
-		basename
-	}));
+	return (_history =
+		!window || window.location.protocol === 'file:'
+			? hashHistory
+			: useRouterHistory(createHistory)({
+					basename
+			  }));
 }

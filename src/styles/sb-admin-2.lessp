@@ -29,7 +29,7 @@ body {
 @media (min-width: 768px) {
   #page-wrapper {
 	position: inherit;
-	margin: -52px 0 0 250px;
+	margin: 10px 0 0 280px;
 	padding: 51px 30px 0 30px;
 	border-left: 1px solid darken(@gray-lightest, 6.5%);
   }
@@ -124,12 +124,17 @@ body {
 .custom-search-form {
   padding: 15px;
 }
+.sidebar .list-group-item{
+  background-color: transparent;
+  border-color: transparent;
+}
 
-.sidebar ul li {
-  border-bottom: 1px solid darken(@gray-lightest, 6.5%);
+.sidebar ul li {  
+  border: none;  
+  width: 100%;
   a {
 	&.active {
-	  background-color: @gray-lighter;
+	  
 	}
   }
 }
@@ -137,7 +142,6 @@ body {
 .sidebar .arrow {
   float: right;
   transition: transform 300ms;
-
 }
 
 .sidebar .fa.arrow:before {
@@ -160,17 +164,18 @@ body {
 }*/
 
 .sidebar .nav .nav li a {
-  padding-left: 37px;
+  padding-left: 20px;
 }
 
 .sidebar .nav .nav .nav li a {
-  padding-left: 52px;
+  padding-left: 15px;
 }
 
 @media (min-width: 768px) {
   .sidebar {
 	z-index: 1;
 	position: absolute;
+  top: 0;
 	width: 250px;
 	margin-top: 51px;
   }
@@ -927,4 +932,12 @@ table.dataTable thead .sorting:after {
 .key {
   display: inline-block;
   padding: 10px 10px 5px 10px;
+}
+
+.navbar-header{
+  top:0;
+  left:0;
+  z-index:999;
+  height: 50px;
+  background-color: @gray-lighter;
 }

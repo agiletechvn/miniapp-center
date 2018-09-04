@@ -1,15 +1,13 @@
 {
-  "presets": [
-	[
-	  "es2015",
-	  {
-		"modules": false
-	  }
+	"presets": [
+		[
+			"es2015",
+			{
+				"modules": false
+			}
+		],
+		"react",
+		"stage-0"
 	],
-	"react",
-	"stage-0"
-  ],
-  "plugins": [
-	"react-hot-loader/babel"
-  ]
+	"plugins": ["react-hot-loader/babel"]
 }

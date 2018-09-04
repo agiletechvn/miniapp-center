@@ -1,11 +1,10 @@
 {
-  "name": "electrode-ota-ui",
+  "name": "miniapp-center",
   "version": "4.4.15",
-  "description": "Electrode OTA User Interface",
+  "description": "Miniapp Center User Interface",
   "main": "dist/index",
-  "electron": "dist/electron",
-  "repository": "https://github.com/electrode-io/electrode-ota-ui",
-  "author": "Justin Spears <speajus@gmail.com>",
+  "repository": "https://github.com/agiletechvn/miniapp-center.git",
+  "author": "Thanh Tu <tu@agiletech.vn>",
   "devDependencies": {
     "autoprefixer": "^6.7.7",
     "babel-core": "^6.24.1",
@@ -16,6 +15,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-runtime": "^6.23.0",
     "caniuse-db": "^1.0.30000653",
+    "classnames": "^2.2.6",
     "code-push": "^1.11.1-beta",
     "css-loader": "^0.28.0",
     "extract-text-webpack-plugin": "^2.1.0",
@@ -56,13 +56,8 @@
     "karma": "NODE_ENV=test karma start --no-single-run --colors --auto-watch",
     "test": "NODE_ENV=test karma start --single-run --browsers Firefox",
     "test-dist": "npm run dist && NODE_ENV=test karma start --single-run --browsers Firefox",
-    "hot": "NODE_ENV=development webpack-dev-server  --inline --config ./webpack.config.js --entry ./public/index.jsx --output-filename=app.entry.js --history-api-fallback --hot --resolve-alias fs=memory-fs",
-    "demo": "NODE_ENV=production webpack -p --output-path dist --entry ./public/index.jsx --output-filename=app.entry.js --config ./webpack.config.js --progress --stats",
-    "electron": "NODE_ENV=production webpack  --output-path dist --output-library-target=commonjs --config ./webpack.electron.config.js",
-    "electron-hot": "NODE_ENV=development webpack-dev-server  --hot --inline --config ./webpack.electron.config.js --history-api-fallback",
+    "hot": "NODE_ENV=development webpack-dev-server --inline --config ./webpack.config.js --entry ./public/index.jsx --output-filename=app.entry.js --history-api-fallback --hot --resolve-alias fs=memory-fs",
     "dist": "NODE_MODULES=production webpack --display-modules -p --devtool sourcemap --output-path dist --entry ./src/export.js --output-library-target var --output-library electrodeOtaUi --output-filename=index.js --config ./webpack.config.js --resolve-alias fs=memory-fs",
-    "preversion": "npm run dist  && npm run electron",
-    "gh-push-site": "git subtree push --prefix www origin gh-pages",
-    "prepublish": "npm run dist"
+    "gh-push-site": "git subtree push --prefix www origin gh-pages"
   }
 }

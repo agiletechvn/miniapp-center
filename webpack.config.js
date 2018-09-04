@@ -14,6 +14,7 @@ var isHot = process.argv.indexOf('--hot') > -1;
 var config = {
 	devtool: 'inline-source-map', //(isPrepublish ? '#source-map' : "#inline-source-map"),
 	devServer: {
+		hot: isHot,
 		noInfo: true,
 		inline: true,
 		contentBase: join('public'),
@@ -49,7 +50,7 @@ var config = {
 			'subschema-prop-types': join(
 				'node_modules/subschema-prop-types/src/index.js'
 			),
-			'electrode-ota-ui': join('src/export.js'),
+			'miniapp-ui': join('src/export.js'),
 			'superagent-proxy': join('sp.js'),
 			ValueManager: join('node_modules/subschema/src/ValueManager.js')
 		}

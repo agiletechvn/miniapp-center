@@ -22,14 +22,20 @@ export default class Shell extends Component {
 		onSearch: PropTypes.func
 	};
 
+	componentDidMount() {
+		this.props.onAccountInfo();
+	}
+
 	handleSearch = ({ target: { value } }) => this.props.onSearch(value);
 
 	render() {
+		const { accountInfo = {} } = this.props;
+		const { name } = accountInfo.value || {};
 		return (
 			<div>
 				<Nav brand={brand}>
-					<Menus>
-						<Dropdown type="user">
+					<Menus className="navbar-nav">
+						<Dropdown type="user" text={name}>
 							<Link href="/profile" icon="user">
 								User Profile
 							</Link>
@@ -42,10 +48,10 @@ export default class Shell extends Component {
 							</Link>
 						</Dropdown>
 					</Menus>
-					<SideBar onSearch={this.handleSearch} value={this.props.open}>
-						<AppsExpand />
-					</SideBar>
 				</Nav>
+				<SideBar onSearch={this.handleSearch} value={this.props.open}>
+					<AppsExpand />
+				</SideBar>
 				<Notify parent="shell" className="top-alert" />
 				<div id="page-wrapper">
 					<div className="container-fluid">

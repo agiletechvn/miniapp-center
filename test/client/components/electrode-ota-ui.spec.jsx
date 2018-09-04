@@ -1,20 +1,16 @@
 /**
  * Client tests
  */
-import React from "react";
-import { shallow } from "enzyme";
+import React from 'react';
+import { shallow } from 'enzyme';
 
-import ElectrodeOtaUi from "src/components/electrode-ota-ui";
+import ElectrodeOtaUi from 'src/components/miniapp-ui';
 
-describe("components/electrode-ota-ui", () => {
-
-  describe("Mounting", () => {
-
-    it("should render into the document", () => {
-      const component = shallow(<ElectrodeOtaUi />);
-      expect(component).to.not.be.null;
-    });
-
-  });
-
+describe('components/miniapp-ui', () => {
+	describe('Mounting', () => {
+		it('should render into the document', () => {
+			const component = shallow(<ElectrodeOtaUi />);
+			expect(component).to.not.be.null;
+		});
+	});
 });
