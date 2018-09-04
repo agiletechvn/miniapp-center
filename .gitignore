@@ -4,3 +4,4 @@ npm-debug.*
 .build
 dist
 .DS_Store
+yarn.lock
