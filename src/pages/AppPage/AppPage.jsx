@@ -93,6 +93,8 @@ export default class AppPage extends Component {
 		) : (
 			name
 		);
+		console.log(collaborators);
+		const owner = findOwner(collaborators);
 		return (
 			<Page label="Application">
 				<Panel>
@@ -104,23 +106,22 @@ export default class AppPage extends Component {
 								message="Are you sure you want to delete this app"
 							>
 								<button
-									className="btn  btn-xs btn-danger btn-app-delete pull-right btn-top-right"
+									className="btn btn-xs btn-danger btn-app-delete pull-right btn-top-right"
 									onClick={this.handleRemove}
 									aria-label="Remove App"
 								>
-									<i className="fa fa-icon fa-fw fa-remove " />
+									<i className="fa fa-icon fa-fw fa-trash " />
 								</button>
 							</Confirm>
 						</Perm>
 					</Heading>
 					<Body>
 						<Notify parent={`app-${name}`} />
-						<GroupItem
-							label="Collaborators"
-							className="list-group-item clearfix nobottom-line"
-						>
+
+						<GroupItem label="Collaborators" className="nobottom-line">
 							<Collaborator collaborators={collaborators} app={name} />
 						</GroupItem>
+
 						<Tabs
 							tabs={deployments.sort().map(label => ({
 								to: `/app/${name}/deployments/${label}`,
@@ -133,7 +134,6 @@ export default class AppPage extends Component {
 							<Notify parent={`deployment-${name}`} className="tab-alert" />
 							{this.props.children}
 						</Tabs>
-						<GroupItem />
 					</Body>
 					<Footer>
 						<small>{description}</small>
@@ -144,18 +144,16 @@ export default class AppPage extends Component {
 								message="Are you sure you want to transfer this app"
 								className="pull-left"
 							>
-								<span className="inline">
+								<GroupItem className="inline bg-info text-white mb-2">
 									{' '}
 									Owner:{' '}
-									<Inplace
-										value={findOwner(collaborators)}
-										onChange={this.handleTransferSubmit}
-									/>
-								</span>
+									<Inplace value={owner} onChange={this.handleTransferSubmit} />
+								</GroupItem>
 							</Confirm>
 						</Perm>
+
 						<Perm collaborators={collaborators} invert={true}>
-							<span className="inline">Owner: {findOwner(collaborators)}</span>
+							<span className="inline">Owner: {owner}</span>
 						</Perm>
 					</Footer>
 				</Panel>

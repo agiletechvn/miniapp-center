@@ -21,7 +21,11 @@ export const More = props => (
 );
 
 const wrap$inner = child => {
-	if (child.type === 'li' || child.type === Divider || child.type === More) {
+	if (
+		child.type === 'li' ||
+		child.type.displayName === 'Divider' ||
+		child.type.displayName === 'More'
+	) {
 		return child;
 	}
 	return <li>{child}</li>;

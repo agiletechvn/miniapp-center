@@ -141,7 +141,7 @@ export default class Components extends Component {
                                        },
                                            {
                                                action: 'edit',
-                                               icon: 'pencil',
+                                               icon: 'edit',
 
                                            }, {
                                                action: 'promote',
