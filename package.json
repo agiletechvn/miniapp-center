@@ -56,7 +56,7 @@
     "karma": "NODE_ENV=test karma start --no-single-run --colors --auto-watch",
     "test": "NODE_ENV=test karma start --single-run --browsers Firefox",
     "test-dist": "npm run dist && NODE_ENV=test karma start --single-run --browsers Firefox",
-    "hot": "NODE_ENV=development webpack-dev-server --inline --config ./webpack.config.js --entry ./public/index.jsx --output-filename=app.entry.js --history-api-fallback --hot --resolve-alias fs=memory-fs",
+    "start": "NODE_ENV=development webpack-dev-server --inline --config ./webpack.config.js --entry ./public/index.jsx --output-filename=app.entry.js --history-api-fallback --hot --resolve-alias fs=memory-fs",
     "dist": "NODE_MODULES=production webpack --display-modules -p --devtool sourcemap --output-path dist --entry ./src/export.js --output-library-target var --output-library electrodeOtaUi --output-filename=index.js --config ./webpack.config.js --resolve-alias fs=memory-fs",
     "gh-push-site": "git subtree push --prefix www origin gh-pages"
   }
